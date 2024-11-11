@@ -1,0 +1,47 @@
+:root {
+  --uc-urlbar-width: clamp(250px, 40vw, 1000px);
+}
+
+/* Hide tab close button */
+.tabbrowser-tab:not([pinned]) .tab-close-button {
+  display: none !important;
+}
+
+#nav-bar {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+#navigator-toolbox {
+  border-bottom: none !important;
+}
+
+/* Autohide forward button */
+#forward-button {
+  transform: scale(1, 1) !important;
+  transition: margin-left 250ms var(--animation-easing-function),
+    opacity 250ms var(--animation-easing-function),
+    transform 250ms var(--animation-easing-function) !important;
+}
+#forward-button[disabled="true"] {
+  margin-left: -36px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* One-line mode */
+@media (min-width: 1440px) {
+  #TabsToolbar {
+    margin-left: var(--uc-urlbar-width) !important;
+  }
+
+  #nav-bar {
+    margin: calc((var(--urlbar-min-height) * -1) - 10px)
+      calc(100vw - var(--uc-urlbar-width)) 1px 0 !important;
+  }
+
+  .titlebar-spacer {
+    display: none !important;
+  }
+}
