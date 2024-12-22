@@ -10,5 +10,5 @@ Suggested layout and how it looks below 1440px width and above 1440px width:
 ## Installation
 
 1. In the `about:config` page, set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
-2. In the `about:profiles` page, open the folder for the Root Directory of the current profile in use, make a new folder called `chrome` and copy the `userChrome.css` file inside.
-3. Fully close and reopen Firefox for any changes to `userChrome.css` to take effect.
+2. In the `about:profiles` page, open the folder for the Root Directory of the current profile in use, make a new folder called `chrome` and copy the files `userChrome.css` and `userContent.css` inside.
+3. Fully close and reopen Firefox for any changes to take effect.
