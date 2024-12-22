@@ -1,5 +1,18 @@
 :root {
+  --uc-theme-colour: rgb(15, 15, 15);
   --uc-urlbar-width: clamp(250px, 40vw, 1000px);
+}
+
+window,
+#main-window,
+#toolbar-menubar,
+#TabsToolbar,
+#PersonalToolbar,
+#navigator-toolbox,
+#sidebar-box,
+#nav-bar,
+#urlbar-background {
+  background: var(--uc-theme-colour) !important;
 }
 
 /* Hide tab close button */
