@@ -1,11 +1,11 @@
 @-moz-document url("about:newtab") {
   html {
-    background-color: rgb(15, 15, 15) !important;
+    background-color: rgb(0, 0, 0) !important;
   }
 }
 
 @-moz-document url("about:blank") {
   html {
-    background-color: rgb(15, 15, 15) !important;
+    background-color: rgb(0, 0, 0) !important;
   }
 }
