@@ -1,7 +1,6 @@
 :root {
   --uc-theme-colour: rgb(0, 0, 0);
   --uc-urlbar-width: clamp(250px, 40vw, 1000px);
-  --tab-selected-bgcolor: rgb(15, 15, 15);
 }
 
 window,
@@ -16,8 +15,9 @@ window,
   background: var(--uc-theme-colour) !important;
 }
 
-.tab-background[selected] {
-  background-color: var(--tab-selected-bgcolor) !important;
+.tab-background[selected],
+.tab-background[multiselected] {
+  background-color: rgb(35, 35, 35) !important;
 }
 
 /* Hide tab close button */
