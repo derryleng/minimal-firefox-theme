@@ -5,15 +5,6 @@
 - Black theme for OLED monitor
 - Minimal design
 
-Example window when width below 1440px:
-![Width below 1440px](assets/below_1440px.png)
-
-Example window when width above 1440px:
-![Width above 1440px](assets/above_1440px.png)
-
-Suggested layout:
-![Suggested layout](assets/suggested_layout.png)
-
 ## Installation
 
 1. In the `about:config` page, set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
