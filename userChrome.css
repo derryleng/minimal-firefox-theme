@@ -63,3 +63,50 @@ window,
     display: none !important;
   }
 }
+
+
+/* Source: https://www.userchrome.org/firefox-89-styling-proton-ui.html */
+
+/* Bookmarks Toolbar folders */
+#PersonalToolbar menupopup,
+/* Right-click context menus */
+#mainPopupSet menupopup,
+/* Top menu bar on Windows (not sure about others) */
+#toolbar-menubar menupopup,
+/* Sidebar/Library bookmark/history context menus */
+#placesContext,
+/* Address bar context menu (2021-10-25) */
+#urlbar-input-container menupopup,
+/* Various toolbar drop-down panels (Fx96) */
+#back-button menupopup, #forward-button menupopup,
+#identity-popup, #appMenu-popup, #downloadsPanel, #BMB_bookmarksPopup {
+  /* Text color */
+  --menu-color: #e0e0e6 !important;
+  --arrowpanel-color: #e0e0e6 !important;
+  --panel-color: #e0e0e6 !important;
+  /* Background color */
+  --menu-background-color:  var(--uc-theme-colour) !important;
+  --arrowpanel-background: var(--uc-theme-colour) !important;
+  --panel-background: var(--uc-theme-colour) !important;
+  /* Border color (if any) */
+  --menu-border-color: threedshadow !important;
+  --arrowpanel-border-color: threedshadow !important;
+  --panel-border-color: threedshadow !important;
+  /* Hovered/expanded item background color */
+  --menuitem-hover-background-color: var(--uc-theme-colour) !important;
+  --button-hover-bgcolor: var(--uc-theme-colour) !important;
+  /* Disabled items text color and hovered background */
+  --menu-disabled-color: rgba(21, 20, 26, 0.4) !important;
+  --menuitem-disabled-hover-background-color: rgba(224, 224, 230, 0.4) !important;
+}
+
+/*** Tighten up drop-down/context/popup menu spacing (8 Sep 2021) ***/
+
+menupopup:not(.in-menulist) > menuitem, 
+menupopup:not(.in-menulist) > menu {
+  padding-block: 4px !important; /* reduce to 3px, 2px, 1px or 0px as needed */ 
+  min-height: unset !important; /* v92.0 - for padding below 4px */
+}
+:root {
+  --arrowpanel-menuitem-padding: 4px 8px !important;
+}
