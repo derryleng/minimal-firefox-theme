@@ -1,24 +1,33 @@
 :root {
-  --bg-col: #000;
+  --bg-col-dark: #000;
 }
 
-@-moz-document url("about:newtab") {
-  html {
-    background-color: var(--bg-col) !important;
+@media (prefers-color-scheme: dark) {
+  @-moz-document url("about:newtab") {
+    html {
+      background-color: var(--bg-col-dark) !important;
+    }
   }
-}
+  @-moz-document url("about:blank") {
+    html {
+      background-color: var(--bg-col-dark) !important;
+    }
+  }
+  @-moz-document domain("youtube.com") {
+    html[dark], [dark] {
+      --yt-spec-base-background: var(--bg-col-dark) !important;
+      #container.ytd-masthead {
+        background-color: #0000 !important;
+      }
 
-@-moz-document url("about:blank") {
-  html {
-    background-color: var(--bg-col) !important;
+    }
   }
 }
 
 @-moz-document domain("youtube.com") {
-  html[dark], [dark] {
-    --yt-spec-base-background: var(--bg-col) !important;
-    #container.ytd-masthead {
-      background-color: var(--bg-col) !important;
-    }
+  /* Disable stupid UI stuff */
+  #voice-search-button,
+  button[aria-label="Create"] {
+    display: none !important;
   }
 }
