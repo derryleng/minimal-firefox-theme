@@ -16,18 +16,29 @@
   @-moz-document domain("youtube.com") {
     html[dark], [dark] {
       --yt-spec-base-background: var(--bg-col-dark) !important;
-      #container.ytd-masthead {
-        background-color: #0000 !important;
-      }
-
     }
   }
 }
 
 @-moz-document domain("youtube.com") {
-  /* Disable stupid UI stuff */
-  #voice-search-button,
-  button[aria-label="Create"] {
+  #sections.ytd-guide-renderer > .ytd-guide-renderer:not(:first-child),
+  #container.ytd-masthead,
+  #background.ytd-masthead,
+  ytd-mini-guide-renderer,
+  #page-header-banner,
+  #footer {
     display: none !important;
+  }
+  ytd-app {
+    margin-top: -80px !important;
+    --ytd-mini-guide-width: 0 !important;
+  }
+  #contentContainer {
+    height: 425px !important;
+    padding-bottom: 0 !important;
+  }
+  #frosted-glass.with-chipbar.ytd-app {
+    background-color: var(--bg-col-dark) !important;
+    height: 54px !important;
   }
 }
