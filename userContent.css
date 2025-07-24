@@ -14,6 +14,9 @@
     }
   }
   @-moz-document domain("youtube.com") {
+    html {
+      --ytd-masthead-height: 0 !important;
+    }
     html[dark], [dark] {
       --yt-spec-base-background: var(--bg-col-dark) !important;
     }
@@ -21,24 +24,49 @@
 }
 
 @-moz-document domain("youtube.com") {
-  #sections.ytd-guide-renderer > .ytd-guide-renderer:not(:first-child),
+  /* Hide all sidebar sections below Liked videos */
+  #sections > ytd-guide-section-renderer:not(:first-child),
+  /* Hide sidebar shorts button */
+  ytd-guide-section-renderer.style-scope:nth-child(1) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(2),
+  /* Hide sidebar footer */
+  #footer,
+  /* Hide top bar */
   #container.ytd-masthead,
+  /* Hide top bar background */
   #background.ytd-masthead,
+  /* Disable mini sidebar */
   ytd-mini-guide-renderer,
-  #page-header-banner,
-  #footer {
+  /* Hide dismissible content such as shorts and news on home feed */
+  ytd-rich-shelf-renderer > #dismissible,
+  ytd-reel-shelf-renderer {
     display: none !important;
   }
+  /* Adjust main content upwards after hiding the top bar */
   ytd-app {
-    margin-top: -80px !important;
+    /* margin-top: -80px !important; */
     --ytd-mini-guide-width: 0 !important;
   }
-  #contentContainer {
+  /* Adjust sidebar height */
+  #contentContainer.tp-yt-app-drawer {
     height: 425px !important;
     padding-bottom: 0 !important;
   }
+  /* Adjust background and height of chipbar */
   #frosted-glass.with-chipbar.ytd-app {
     background-color: var(--bg-col-dark) !important;
     height: 54px !important;
+  }
+  tp-yt-app-header {
+    margin-top: 0 !important;
+  }
+  /* Adjust playlist left header after hiding the sidebar */
+  ytd-playlist-header-renderer {
+    margin-left: -60px !important;
+  }
+}
+
+@-moz-document domain("google.com") {
+  .ZhtFke {
+    display: none !important;
   }
 }
