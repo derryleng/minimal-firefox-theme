@@ -65,8 +65,16 @@
   }
 }
 
+/* Hide Google maps UI elemnts */
 @-moz-document domain("google.com") {
   .ZhtFke {
+    display: none !important;
+  }
+}
+
+/* Hide HERE WeGo maps UI elemnts */
+@-moz-document domain("wego.here.com") {
+  .Map__collections {
     display: none !important;
   }
 }
