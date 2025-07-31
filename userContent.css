@@ -14,7 +14,7 @@
     }
   }
   @-moz-document domain("youtube.com") {
-    html {
+    html, ytd-app {
       --ytd-masthead-height: 0 !important;
     }
     html[dark], [dark] {
