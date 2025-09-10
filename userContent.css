@@ -16,6 +16,7 @@
   @-moz-document domain("youtube.com") {
     html, ytd-app {
       --ytd-masthead-height: 0 !important;
+      --ytd-mini-guide-width: 0 !important;
     }
     html[dark], [dark] {
       --yt-spec-base-background: var(--bg-col-dark) !important;
@@ -24,33 +25,23 @@
 }
 
 @-moz-document domain("youtube.com") {
-  /* Hide all sidebar sections below Liked videos */
-  #sections > ytd-guide-section-renderer:not(:first-child),
   /* Hide sidebar shorts button */
   ytd-guide-section-renderer.style-scope:nth-child(1) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(2),
-  /* Hide sidebar footer */
+  /* Hide sidebar footer, Explore and More from YouTube sections */
   #footer,
+  #sections.ytd-guide-renderer > .ytd-guide-renderer:nth-child(3),
+  #sections.ytd-guide-renderer > .ytd-guide-renderer:nth-child(4),
   /* Hide top bar */
   #container.ytd-masthead,
-  /* Hide top bar background */
   #background.ytd-masthead,
-  /* Disable mini sidebar */
-  ytd-mini-guide-renderer,
   /* Hide dismissible content such as shorts and news on home feed */
   ytd-rich-shelf-renderer > #dismissible,
-  ytd-reel-shelf-renderer {
+  ytd-reel-shelf-renderer,
+  /* Hide mini sidebar */
+  ytd-mini-guide-renderer {
     display: none !important;
   }
-  /* Adjust main content upwards after hiding the top bar */
-  ytd-app {
-    /* margin-top: -80px !important; */
-    --ytd-mini-guide-width: 0 !important;
-  }
-  /* Adjust sidebar height */
-  #contentContainer.tp-yt-app-drawer {
-    height: 425px !important;
-    padding-bottom: 0 !important;
-  }
+
   /* Adjust background and height of chipbar */
   #frosted-glass.with-chipbar.ytd-app {
     background-color: var(--bg-col-dark) !important;
@@ -59,10 +50,29 @@
   tp-yt-app-header {
     margin-top: 0 !important;
   }
-  /* Adjust playlist left header after hiding the sidebar */
-  ytd-playlist-header-renderer {
-    margin-left: -60px !important;
+
+  /* Adjust sidebar background */
+  #contentContainer.tp-yt-app-drawer,
+  #guide-content.ytd-app {
+    background: rgba(0, 0, 0, 0.75) !important;
   }
+
+  /* Remove darkened overlay on opening sidebar */
+  #scrim.tp-yt-app-drawer {
+    background: rgba(0, 0, 0, 0) !important;
+  }
+  body {
+    overflow: visible !important;
+  }
+
+  /* Remove sidebar vertical borders */
+  ytd-guide-collapsible-section-entry-renderer.ytd-guide-section-renderer:not(:first-child) {
+    border-top: none !important;
+  }
+  #sections.ytd-guide-renderer > .ytd-guide-renderer:not(:last-child) {
+    border-bottom: none !important;
+  }
+
 }
 
 /* Hide Google maps UI elemnts */
