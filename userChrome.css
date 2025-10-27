@@ -35,21 +35,8 @@ window,
   border-bottom: none !important;
 }
 
-/* Autohide forward button */
-#forward-button {
-  transform: scale(1, 1) !important;
-  transition: margin-left 250ms var(--animation-easing-function),
-    opacity 250ms var(--animation-easing-function),
-    transform 250ms var(--animation-easing-function) !important;
-}
-#forward-button[disabled="true"] {
-  margin-left: -36px !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
 /* One-line mode */
-@media (min-width: 1440px) {
+@media (min-width: 2048px) {
   #TabsToolbar {
     margin-left: var(--uc-urlbar-width) !important;
   }

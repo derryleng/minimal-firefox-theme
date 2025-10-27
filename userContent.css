@@ -27,10 +27,18 @@
 @-moz-document domain("youtube.com") {
   /* Hide sidebar shorts button */
   ytd-guide-section-renderer.style-scope:nth-child(1) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(2),
-  /* Hide sidebar footer, Explore and More from YouTube sections */
-  #footer,
+  /*
+  Hide sidebar sections:
+  - Subscriptions,
+  - Explore,
+  - More from YouTube
+  - Footer
+  */
+  #sections.ytd-guide-renderer > .ytd-guide-renderer:nth-child(2),
   #sections.ytd-guide-renderer > .ytd-guide-renderer:nth-child(3),
   #sections.ytd-guide-renderer > .ytd-guide-renderer:nth-child(4),
+  #sections.ytd-guide-renderer > .ytd-guide-renderer:nth-child(5),
+  #footer,
   /* Hide top bar */
   #container.ytd-masthead,
   #background.ytd-masthead,
@@ -51,15 +59,15 @@
     margin-top: 0 !important;
   }
 
-  /* Adjust sidebar background */
-  #contentContainer.tp-yt-app-drawer,
-  #guide-content.ytd-app {
-    background: rgba(0, 0, 0, 0.75) !important;
+  /* Adjust sidebar */
+  #contentContainer.tp-yt-app-drawer {
+    background: none !important;
+    height: 425px !important;
   }
 
   /* Remove darkened overlay on opening sidebar */
   #scrim.tp-yt-app-drawer {
-    background: rgba(0, 0, 0, 0) !important;
+    background: none !important;
   }
   body {
     overflow: visible !important;
@@ -75,16 +83,9 @@
 
 }
 
-/* Hide Google maps UI elemnts */
+/* Hide Google maps UI elements */
 @-moz-document domain("google.com") {
   .ZhtFke {
-    display: none !important;
-  }
-}
-
-/* Hide HERE WeGo maps UI elemnts */
-@-moz-document domain("wego.here.com") {
-  .Map__collections {
     display: none !important;
   }
 }
