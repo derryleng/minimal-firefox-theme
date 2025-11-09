@@ -18,7 +18,7 @@
       --ytd-masthead-height: 0 !important;
       --ytd-mini-guide-width: 0 !important;
     }
-    html[dark], [dark] {
+    html[dark], [dark], html[darker-dark-theme-deprecate], [darker-dark-theme-deprecate] {
       --yt-spec-base-background: var(--bg-col-dark) !important;
     }
   }
@@ -81,11 +81,29 @@
     border-bottom: none !important;
   }
 
+  /* Disable channel banner */
+  #page-header-banner {
+    display: none !important;
+  }
+
+  /* Remove ads in feed */
+  .ytd-in-feed-ad-layout-renderer {
+    display: none !important;
+  }
+
 }
 
 /* Hide Google maps UI elements */
 @-moz-document domain("google.com") {
   .ZhtFke {
+    display: none !important;
+  }
+}
+
+
+/* Yahoo finance advanced view */
+@-moz-document domain("finance.yahoo.com") {
+  .yf-1x4b3ze, .yf-1qlzhkm {
     display: none !important;
   }
 }
