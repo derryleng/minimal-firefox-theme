@@ -29,13 +29,10 @@
   ytd-guide-section-renderer.style-scope:nth-child(1) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(2),
   /*
   Hide sidebar sections:
-  - Subscriptions,
   - Explore,
   - More from YouTube
   - Footer
   */
-  #sections.ytd-guide-renderer > .ytd-guide-renderer:nth-child(2),
-  #sections.ytd-guide-renderer > .ytd-guide-renderer:nth-child(3),
   #sections.ytd-guide-renderer > .ytd-guide-renderer:nth-child(4),
   #sections.ytd-guide-renderer > .ytd-guide-renderer:nth-child(5),
   #footer,
@@ -60,10 +57,10 @@
   }
 
   /* Adjust sidebar */
-  #contentContainer.tp-yt-app-drawer {
+  /* #contentContainer.tp-yt-app-drawer {
     background: none !important;
     height: 425px !important;
-  }
+  } */
 
   /* Remove darkened overlay on opening sidebar */
   #scrim.tp-yt-app-drawer {
