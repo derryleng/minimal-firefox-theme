@@ -36,6 +36,10 @@
   #sections.ytd-guide-renderer > .ytd-guide-renderer:nth-child(4),
   #sections.ytd-guide-renderer > .ytd-guide-renderer:nth-child(5),
   #footer,
+  /* Hide sidebar "Report history", "Help" and "Send feedback" buttons */
+  ytd-guide-section-renderer.style-scope:nth-child(6) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(2),
+  ytd-guide-section-renderer.style-scope:nth-child(6) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(3),
+  ytd-guide-section-renderer.style-scope:nth-child(6) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(4),
   /* Hide top bar */
   #container.ytd-masthead,
   #background.ytd-masthead,
@@ -43,7 +47,13 @@
   ytd-rich-shelf-renderer > #dismissible,
   ytd-reel-shelf-renderer,
   /* Hide mini sidebar */
-  ytd-mini-guide-renderer {
+  ytd-mini-guide-renderer,
+  /* Disable channel banner */
+  #page-header-banner,
+  /* Remove ads in feed */
+  .ytd-in-feed-ad-layout-renderer,
+  /* Remove donations */
+  ytd-donation-shelf-renderer {
     display: none !important;
   }
 
@@ -57,10 +67,10 @@
   }
 
   /* Adjust sidebar */
-  /* #contentContainer.tp-yt-app-drawer {
+  #contentContainer.tp-yt-app-drawer {
     background: none !important;
-    height: 425px !important;
-  } */
+    height: auto !important;
+  }
 
   /* Remove darkened overlay on opening sidebar */
   #scrim.tp-yt-app-drawer {
@@ -78,29 +88,4 @@
     border-bottom: none !important;
   }
 
-  /* Disable channel banner */
-  #page-header-banner {
-    display: none !important;
-  }
-
-  /* Remove ads in feed */
-  .ytd-in-feed-ad-layout-renderer {
-    display: none !important;
-  }
-
-}
-
-/* Hide Google maps UI elements */
-@-moz-document domain("google.com") {
-  .ZhtFke {
-    display: none !important;
-  }
-}
-
-
-/* Yahoo finance advanced view */
-@-moz-document domain("finance.yahoo.com") {
-  .yf-1x4b3ze, .yf-1qlzhkm {
-    display: none !important;
-  }
 }
