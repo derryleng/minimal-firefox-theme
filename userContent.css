@@ -13,33 +13,35 @@
       background-color: var(--bg-col-dark) !important;
     }
   }
-  @-moz-document domain("youtube.com") {
-    html, ytd-app {
-      --ytd-masthead-height: 0 !important;
-      --ytd-mini-guide-width: 0 !important;
-    }
-    html[dark], [dark], html[darker-dark-theme-deprecate], [darker-dark-theme-deprecate] {
-      --yt-spec-base-background: var(--bg-col-dark) !important;
-    }
-  }
 }
 
 @-moz-document domain("youtube.com") {
+
+  [color-version="v2_0"] [dark], html[color-version="v2_0"][dark] {
+    --yt-sys-color-baseline--base-background: var(--bg-col-dark) !important;
+  }
+
+  [dark] {
+    --t3e41d7b17b187f69: var(--bg-col-dark) !important;
+  }
+
+  html, ytd-app {
+    --ytd-masthead-height: 0 !important;
+    --ytd-mini-guide-width: 0 !important;
+  }
+
+  html[dark], [dark],
+  html[darker-dark-theme-deprecate], [darker-dark-theme-deprecate] {
+    --yt-spec-base-background: var(--bg-col-dark) !important;
+  }
+
   /* Hide sidebar shorts button */
   ytd-guide-section-renderer.style-scope:nth-child(1) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(2),
-  /*
-  Hide sidebar sections:
-  - Explore,
-  - More from YouTube
-  - Footer
-  */
+  /* Hide sidebar sections */
   #sections.ytd-guide-renderer > .ytd-guide-renderer:nth-child(4),
   #sections.ytd-guide-renderer > .ytd-guide-renderer:nth-child(5),
+  #sections.ytd-guide-renderer > .ytd-guide-renderer:nth-child(6),
   #footer,
-  /* Hide sidebar "Report history", "Help" and "Send feedback" buttons */
-  ytd-guide-section-renderer.style-scope:nth-child(6) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(2),
-  ytd-guide-section-renderer.style-scope:nth-child(6) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(3),
-  ytd-guide-section-renderer.style-scope:nth-child(6) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(4),
   /* Hide top bar */
   #container.ytd-masthead,
   #background.ytd-masthead,
@@ -53,7 +55,9 @@
   /* Remove ads in feed */
   .ytd-in-feed-ad-layout-renderer,
   /* Remove donations */
-  ytd-donation-shelf-renderer {
+  ytd-donation-shelf-renderer,
+  /* Remove videos with badges */
+  ytd-rich-item-render:has(yt-badge-view-model) {
     display: none !important;
   }
 
@@ -88,4 +92,35 @@
     border-bottom: none !important;
   }
 
+  /* Disable channel banner */
+  #page-header-banner {
+    display: none !important;
+  }
+
+  /* Remove ads in feed */
+  .ytd-in-feed-ad-layout-renderer {
+    display: none !important;
+  }
+
+}
+
+/* Hide Google maps UI elements */
+@-moz-document domain("google.com") {
+  .ZhtFke {
+    display: none !important;
+  }
+}
+
+/* Hide HERE WeGo maps UI elemnts */
+@-moz-document domain("wego.here.com") {
+  .Map__collections {
+    display: none !important;
+  }
+}
+
+/* Yahoo finance advanced view */
+@-moz-document domain("finance.yahoo.com") {
+  .yf-1x4b3ze, .yf-1qlzhkm {
+    display: none !important;
+  }
 }
