@@ -40,13 +40,13 @@ window,
 }
 
 /* Autohide forward button */
-#forward-button {
+#forward-button, #back-button {
   transform: scale(1, 1) !important;
   transition: margin-left 250ms var(--animation-easing-function),
     opacity 250ms var(--animation-easing-function),
     transform 250ms var(--animation-easing-function) !important;
 }
-#forward-button[disabled="true"] {
+#forward-button[disabled="true"], #back-button[disabled="true"] {
   margin-left: -36px !important;
   opacity: 0 !important;
   pointer-events: none !important;
@@ -68,6 +68,10 @@ window,
   }
 }
 
+/* Hide titlebar buttons */
+.titlebar-buttonbox-container{
+  display: none !important;
+}
 
 /* Source: https://www.userchrome.org/firefox-89-styling-proton-ui.html */
 
