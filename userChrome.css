@@ -1,9 +1,10 @@
 :root {
+  /* --uc-theme-colour: rgb(30, 110, 189); */
   --uc-theme-colour: rgb(0, 0, 0);
   --uc-urlbar-width: clamp(250px, 40vw, 1000px);
 }
 
-window,
+body,
 #main-window,
 #toolbar-menubar,
 #TabsToolbar,
@@ -39,19 +40,6 @@ window,
   border-bottom: none !important;
 }
 
-/* Autohide forward button */
-#forward-button, #back-button {
-  transform: scale(1, 1) !important;
-  transition: margin-left 250ms var(--animation-easing-function),
-    opacity 250ms var(--animation-easing-function),
-    transform 250ms var(--animation-easing-function) !important;
-}
-#forward-button[disabled="true"], #back-button[disabled="true"] {
-  margin-left: -36px !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
 /* One-line mode */
 @media (min-width: 1920px) {
   #TabsToolbar {
@@ -66,11 +54,6 @@ window,
   .titlebar-spacer {
     width: 1em !important;
   }
-}
-
-/* Hide titlebar buttons */
-.titlebar-buttonbox-container{
-  display: none !important;
 }
 
 /* Source: https://www.userchrome.org/firefox-89-styling-proton-ui.html */
