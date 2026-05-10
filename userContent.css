@@ -17,10 +17,7 @@
 
 @-moz-document domain("youtube.com") {
 
-  [color-version="v2_0"] [dark], html[color-version="v2_0"][dark] {
-    --yt-sys-color-baseline--base-background: var(--bg-col-dark) !important;
-  }
-
+  /* ytd-app dark theme background */
   [dark] {
     --t3e41d7b17b187f69: var(--bg-col-dark) !important;
   }
@@ -28,11 +25,6 @@
   html, ytd-app {
     --ytd-masthead-height: 0 !important;
     --ytd-mini-guide-width: 0 !important;
-  }
-
-  html[dark], [dark],
-  html[darker-dark-theme-deprecate], [darker-dark-theme-deprecate] {
-    --yt-spec-base-background: var(--bg-col-dark) !important;
   }
 
   /* Hide sidebar shorts button */
@@ -99,28 +91,6 @@
 
   /* Remove ads in feed */
   .ytd-in-feed-ad-layout-renderer {
-    display: none !important;
-  }
-
-}
-
-/* Hide Google maps UI elements */
-@-moz-document domain("google.com") {
-  .ZhtFke {
-    display: none !important;
-  }
-}
-
-/* Hide HERE WeGo maps UI elemnts */
-@-moz-document domain("wego.here.com") {
-  .Map__collections {
-    display: none !important;
-  }
-}
-
-/* Yahoo finance advanced view */
-@-moz-document domain("finance.yahoo.com") {
-  .yf-1x4b3ze, .yf-1qlzhkm {
     display: none !important;
   }
 }

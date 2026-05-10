@@ -1,5 +1,4 @@
 :root {
-  /* --uc-theme-colour: rgb(30, 110, 189); */
   --uc-theme-colour: rgb(0, 0, 0);
   --uc-urlbar-width: clamp(250px, 40vw, 1000px);
 }
@@ -14,6 +13,10 @@ body,
 #nav-bar,
 #urlbar-background {
   background: var(--uc-theme-colour) !important;
+  margin: none !important;
+  padding: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .tab-background[selected],
@@ -24,20 +27,6 @@ body,
 /* Hide tab close button */
 .tabbrowser-tab:not([pinned]) .tab-close-button {
   display: none !important;
-}
-
-.tabbrowser-tab[selected="true"]{
-	font-weight: bold;
-}
-
-#nav-bar {
-  border: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
-}
-
-#navigator-toolbox {
-  border-bottom: none !important;
 }
 
 /* One-line mode */
