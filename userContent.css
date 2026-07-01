@@ -40,6 +40,9 @@
   /* Hide dismissible content such as shorts and news on home feed */
   ytd-rich-shelf-renderer > #dismissible,
   ytd-reel-shelf-renderer,
+  /* Hide auto-dubbed videos */
+  ytd-rich-item-renderer:has(badge-shape[aria-label="Auto-dubbed"]),
+  ytd-rich-grid-media:has(badge-shape[aria-label="Auto-dubbed"]),
   /* Hide mini sidebar */
   ytd-mini-guide-renderer,
   /* Disable channel banner */
