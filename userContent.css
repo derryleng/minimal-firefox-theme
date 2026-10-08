@@ -85,3 +85,12 @@
     border-bottom: none !important;
   }
 }
+
+@-moz-document domain("runescape.wiki") {
+  #mw-panel {
+    display: none !important;
+  }
+  .mw-body, #mw-data-after-content {
+    margin-left: 0 !important;
+  }
+}
