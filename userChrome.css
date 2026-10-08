@@ -1,6 +1,8 @@
 :root {
   --uc-theme-colour: rgb(0, 0, 0);
   --uc-urlbar-width: clamp(250px, 40vw, 1000px);
+  --uc-tab-outline-selected: rgb(215, 215, 215);
+  --uc-tab-outline-multiselected: rgb(130, 130, 130);
 }
 
 body,
@@ -11,7 +13,8 @@ body,
 #navigator-toolbox,
 #sidebar-box,
 #nav-bar,
-#urlbar-background {
+#urlbar-background,
+.urlbar-background {
   background: var(--uc-theme-colour) !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -19,9 +22,36 @@ body,
   box-shadow: none !important;
 }
 
-.tab-background[selected],
+.tabbrowser-tab {
+  --tab-background-color: var(--uc-theme-colour) !important;
+  --tab-background-color-hover: var(--uc-theme-colour) !important;
+  --tab-background-color-selected: var(--uc-theme-colour) !important;
+}
+
+.tab-background {
+  background-color: var(--uc-theme-colour) !important;
+}
+
 .tab-background[multiselected] {
-  background-color: rgb(35, 35, 35) !important;
+  outline: none !important;
+  box-shadow: inset 0 0 0 1px var(--uc-tab-outline-multiselected) !important;
+}
+
+.tab-background[selected] {
+  --tab-border-color-accent: linear-gradient(transparent, transparent) !important;
+  outline: none !important;
+  box-shadow: inset 0 0 0 1px var(--uc-tab-outline-selected) !important;
+}
+
+/* replicate Nova thicker outline on active tab in multi-selection */
+.tab-background[selected][multiselected] {
+  box-shadow: inset 0 0 0 2px var(--uc-tab-outline-selected) !important;
+}
+
+/* slightly dimmer text on tabs that aren't active or selected */
+.tabbrowser-tab:not([selected], [multiselected]) {
+  --tab-text-color: rgb(165, 165, 170);
+  --tab-text-color-hover: rgb(215, 215, 220);
 }
 
 /* Hide tab close button */
@@ -31,13 +61,30 @@ body,
 
 /* One-line mode */
 @media (min-width: 1920px) {
-  #TabsToolbar {
-    margin-left: var(--uc-urlbar-width) !important;
+  /* use grid instead of negative-margin so it doesn't depend on
+    --urlbar-min-height or toolbar heights/margins that Nova changed */
+  #navigator-toolbox {
+    display: grid !important;
+    grid-template-columns: var(--uc-urlbar-width) 1fr;
   }
 
   #nav-bar {
-    margin: calc((var(--urlbar-min-height) * -1) - 10px)
-      calc(100vw - var(--uc-urlbar-width)) 1px 0 !important;
+    grid-area: 1 / 1;
+  }
+
+  #TabsToolbar {
+    grid-area: 1 / 2;
+  }
+
+  #toolbar-menubar,
+  #PersonalToolbar,
+  #notifications-toolbar {
+    grid-column: 1 / -1;
+  }
+
+  /* collapsed toolbars would otherwise keep their row height in a grid */
+  #navigator-toolbox > toolbar[collapsed]:not([collapsed="false"]) {
+    display: none !important;
   }
 
   .titlebar-spacer {
@@ -45,47 +92,32 @@ body,
   }
 }
 
-/* Source: https://www.userchrome.org/firefox-89-styling-proton-ui.html */
+/* Search engine picker button in the URL bar (a moz-button, type="muted") */
+.searchmode-switcher {
+  --button-background-color-muted: var(--uc-theme-colour) !important;
+  --button-background-color-muted-hover: rgb(35, 35, 35) !important;
+  --button-background-color-muted-active: rgb(50, 50, 50) !important;
+  --button-background-color-muted-selected: rgb(50, 50, 50) !important;
+}
 
-/* Bookmarks Toolbar folders */
-#PersonalToolbar menupopup,
-/* Right-click context menus */
-#mainPopupSet menupopup,
-/* Top menu bar on Windows (not sure about others) */
-#toolbar-menubar menupopup,
-/* Sidebar/Library bookmark/history context menus */
-#placesContext,
-/* Address bar context menu (2021-10-25) */
-#urlbar-input-container menupopup,
-/* Various toolbar drop-down panels (Fx96) */
-#back-button menupopup,
-#forward-button menupopup,
+/* Context menus and popup panels.
+  Firefox now draws these from --panel-background-color / --panel-text-color /
+  --panel-border-color on the popup itself. The old --menu-*, --arrowpanel-*
+  and --panel-background / --panel-color names no longer exist.
+  `menupopup` covers every right-click menu (page and UI) and submenus. */
+menupopup,
 #identity-popup,
+#trustpanel-popup,
 #appMenu-popup,
 #downloadsPanel,
-#BMB_bookmarksPopup {
-  /* Text color */
-  --menu-color: #e0e0e6 !important;
-  --arrowpanel-color: #e0e0e6 !important;
-  --panel-color: #e0e0e6 !important;
-
-  /* Background color */
-  --menu-background-color: var(--uc-theme-colour) !important;
-  --arrowpanel-background: var(--uc-theme-colour) !important;
-  --panel-background: var(--uc-theme-colour) !important;
-
-  /* Border color (if any) */
-  --menu-border-color: threedshadow !important;
-  --arrowpanel-border-color: threedshadow !important;
+/* Temporary panel Firefox creates on demand for "List all tabs" and other
+  toolbar widget panels */
+#customizationui-widget-panel,
+#unified-extensions-panel,
+#widget-overflow {
+  --panel-background-color: var(--uc-theme-colour) !important;
+  --panel-text-color: #e0e0e6 !important;
   --panel-border-color: threedshadow !important;
-
-  /* Hovered/expanded item background color */
-  --menuitem-hover-background-color: var(--uc-theme-colour) !important;
-  --button-hover-bgcolor: var(--uc-theme-colour) !important;
-
-  /* Disabled items text color and hovered background */
-  --menu-disabled-color: rgba(21, 20, 26, 0.4) !important;
-  --menuitem-disabled-hover-background-color: rgba(224, 224, 230, 0.4) !important;
 }
 
 /* Tighten drop-down, context, and popup menu spacing */
