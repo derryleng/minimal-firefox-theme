@@ -54,6 +54,19 @@ body,
   --tab-text-color-hover: rgb(215, 215, 220);
 }
 
+/* Remove the thin separator between the toolbars and the page. Nova draws it
+  as a border on the page container (not on #navigator-toolbox as before),
+  plus side borders where a sidebar meets the page. */
+.browserContainer {
+  border-block-start: none !important;
+  border-inline-start: none !important;
+  border-inline-end: none !important;
+}
+
+#navigator-toolbox {
+  border-bottom: none !important;
+}
+
 /* Hide tab close button */
 .tabbrowser-tab:not([pinned]) .tab-close-button {
   display: none !important;
