@@ -43,28 +43,22 @@ body,
   box-shadow: inset 0 0 0 1px var(--uc-tab-outline-selected) !important;
 }
 
-/* replicate Nova thicker outline on active tab in multi-selection */
+/* Replicate Nova thicker outline on active tab in multi-selection */
 .tab-background[selected][multiselected] {
   box-shadow: inset 0 0 0 2px var(--uc-tab-outline-selected) !important;
 }
 
-/* slightly dimmer text on tabs that aren't active or selected */
+/* Slightly dimmer text on tabs that aren't active or selected */
 .tabbrowser-tab:not([selected], [multiselected]) {
   --tab-text-color: rgb(165, 165, 170);
   --tab-text-color-hover: rgb(215, 215, 220);
 }
 
-/* Remove the thin separator between the toolbars and the page. Nova draws it
-  as a border on the page container (not on #navigator-toolbox as before),
-  plus side borders where a sidebar meets the page. */
+/* Remove separator between the toolbars and the page */
 .browserContainer {
   border-block-start: none !important;
   border-inline-start: none !important;
   border-inline-end: none !important;
-}
-
-#navigator-toolbox {
-  border-bottom: none !important;
 }
 
 /* Hide tab close button */
@@ -74,8 +68,6 @@ body,
 
 /* One-line mode */
 @media (min-width: 1920px) {
-  /* use grid instead of negative-margin so it doesn't depend on
-    --urlbar-min-height or toolbar heights/margins that Nova changed */
   #navigator-toolbox {
     display: grid !important;
     grid-template-columns: var(--uc-urlbar-width) 1fr;
@@ -95,7 +87,7 @@ body,
     grid-column: 1 / -1;
   }
 
-  /* collapsed toolbars would otherwise keep their row height in a grid */
+  /* Collapsed toolbars would otherwise keep their row height in a grid */
   #navigator-toolbox > toolbar[collapsed]:not([collapsed="false"]) {
     display: none !important;
   }
@@ -113,18 +105,12 @@ body,
   --button-background-color-muted-selected: rgb(50, 50, 50) !important;
 }
 
-/* Context menus and popup panels.
-  Firefox now draws these from --panel-background-color / --panel-text-color /
-  --panel-border-color on the popup itself. The old --menu-*, --arrowpanel-*
-  and --panel-background / --panel-color names no longer exist.
-  `menupopup` covers every right-click menu (page and UI) and submenus. */
+/* Context menus and popup panels */
 menupopup,
 #identity-popup,
 #trustpanel-popup,
 #appMenu-popup,
 #downloadsPanel,
-/* Temporary panel Firefox creates on demand for "List all tabs" and other
-  toolbar widget panels */
 #customizationui-widget-panel,
 #unified-extensions-panel,
 #widget-overflow {
